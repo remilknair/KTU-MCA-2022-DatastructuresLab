@@ -1,0 +1,70 @@
+#include <stdio.h>  
+#include<stdlib.h>
+# define max 6  
+int main()
+{
+int queue[max],i,ch=1,element,n;    
+int front=-1;  
+int rear=-1;
+printf("Circular queue using array"); 
+printf("\n 1.Insertion \n 2.Deletion \n 3.Display \n 4.exit\n");  
+While(ch)
+{
+printf("Enter the choice:");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1: if(front==-1 && rear==-1)   // condition to check queue is empty  
+        {  
+        front=0;  
+        rear=0;  
+        queue[rear]=element;  
+    }  
+    else if((rear+1)%max==front)  // condition to check queue is full  
+    {  
+        printf("Queue is full");  
+    }  
+    else
+    {
+        printf("Enter the element:");
+        scanf("%d",&n);
+        rear=(rear+1)%max;
+    }
+    break;
+case 2:    if((front==-1) && (rear==-1))  // condition to check queue is empty  
+           {  
+           printf("\nQueue is empty");  
+           }  
+           else if(front==rear)  
+           {  
+           printf("\nThe dequeued element is %d", queue[front]);  
+           front=-1;  
+   rear=-1;  
+}   
+else  
+{  
+    printf("\nThe dequeued element is %d", queue[front]);  
+   front=(front+1)%max;  
+}  
+break;
+case 3:   if(front==-1 && rear==-1)  
+    {  
+        printf("\n Queue is empty..");  
+    }  
+    else  
+    {  
+        printf("\nElements in a Queue are :");  
+        while(i<=rear)  
+        {  
+            printf("%d,", queue[i]);  
+            i=(i+1)%max;  
+        }  
+    }  
+ break; 
+case 4:exit(0);
+       break;
+       default:printf("Please enter a valid choice(1|2|3|4)\n");
+}
+}
+return 0;
+}
