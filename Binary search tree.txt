@@ -57,7 +57,6 @@ void main()
             case 3:
                 printf("\nEnter element you want to search: ");
                 scanf("%d", &data); 
-                data = get_data();
                 if (search(data) == 1)
                 {
                     printf("\n Element found!\n");
